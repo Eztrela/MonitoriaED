@@ -1,7 +1,6 @@
 class PilhaException(Exception):
     def __init__(self,mensagem):
         super().__init__(mensagem)
-        
 
 class No:
     def __init__(self, carga:any):
@@ -35,11 +34,9 @@ class No:
 class Pilha:
 
     def __init__(self):
-
         self.__topo = None 
         self.__tam = 0
     
-
     def __len__(self):
         '''Retorna o tamanho da lista'''
         return self.__tam
@@ -67,10 +64,8 @@ class Pilha:
                 return cursor.getCarga()
             
             cursor=cursor.getProximo()
-            cursorPosicao-=1
-        
+            cursorPosicao -= 1
 
-                
     def busca(self, key:any)->int:
         """ Método que retorna a posicao ordenada, dentro da pilha, em que se encontra uma chave passado como argumento."""
         
@@ -81,7 +76,7 @@ class Pilha:
         
         while cursor!=None:
                         
-            if key== cursor.getCarga(): #Verificamos se a carga do nó é igual a chave que procuramos.
+            if key == cursor.getCarga(): #Verificamos se a carga do nó é igual a chave que procuramos.
                 '''Lembrando, a pilha foi considerada como: o topo é o último nó. 
                 Logo os passos precisam ser contados na ordem inversa ao tamanho:
                 
@@ -99,8 +94,10 @@ class Pilha:
         
                 '''
                 return posicaoKey
+            
             cursor=cursor.getProximo()
             posicaoKey-=1
+            
         return -1
         
 
@@ -131,26 +128,30 @@ class Pilha:
         novoNo=No(carga)
         novoNo.setProximo(self.__topo)
         self.__topo=novoNo
-        self.__tam+=1       
+        self.__tam += 1       
 
     def desempilha(self)->any:
         """ Método que remove um elemento do topo da pilha e retorna sua carga correspondente. """
+        
         if self.estaVazia():
             raise PilhaException('A pilha está vazia!')
         
         NodeCarga=self.__topo.getCarga()
         self.__topo= self.__topo.getProximo()
         self.__tam-=1
+        
         return NodeCarga
     
     def modificar(self,posicaoDesejada:int, novoValor:any)->bool:
         '''Modifica um Nó a partir de uma posição.'''
+        
         if self.estaVazia():return False
         if posicaoDesejada<=0 or posicaoDesejada> self.__tam: return False      
         
         
         cursor=self.__topo
         cursorPosicao=self.__tam
+        
         while cursor!=None:
             if cursorPosicao==posicaoDesejada:
                 try:

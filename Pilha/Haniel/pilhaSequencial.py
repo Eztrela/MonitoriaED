@@ -23,29 +23,27 @@ class Pilha:
         try:
             #== == Só funciona se: a pilha NÃO estiver vazia e a posição inserida não exceda o tamanho da lista.
             assert not self.estaVazia() ,'A lista está vazia!'
+            
             assert self.tamanho()>=posicao and posicao>0, f'A posição inserida é inválida, pois o tamanho da pilha é de {self.tamanho()} nó(s)!'
             
-            return self.__pilha[posicao-1]
+            return self.__pilha[posicao - 1]
         
         except AssertionError as AE:
             raise PilhaException(AE)
         except Exception as E:
             raise PilhaException(E)
-        else:
-            return valorNo
 
 #== == == == Método que retornára a posição de um Nó através do valor no qual foi inserido.
     def busca(self, conteudo:any)->int:
         try:
             #== == O método só não funciona quando a lista estiver vazia
             assert not self.estaVazia() ,'A lista está vazia!'
-            
-            for i in range(len(self.__pilha)):
-                if self.__pilha[i]==conteudo:
-                    return i
-                              
-            raise PilhaException('Contéudo inserido não foi encontrado!') # o contéudo não foi Achado.
     
+            posicao=self.__pilha.index(conteudo) + 1
+            return posicao
+                              
+        except ValueError as VE:
+            return -1
         except AssertionError as AE:
             raise PilhaException(AE)
         except Exception as E:
@@ -58,7 +56,7 @@ class Pilha:
             assert not self.estaVazia() ,'A lista está vazia!'
             assert self.tamanho()>=posicao and posicao>0, f'A posição inserida é inválida, pois o tamanho da pilha é de {self.tamanho()} nó(s)!'
         
-            self.__pilha[posicao-1]= conteudo
+            self.__pilha[posicao- 1]= conteudo
  
         except AssertionError as AE:
             raise PilhaException(AE)
@@ -74,6 +72,7 @@ class Pilha:
     def desempilha(self)->any:
         try:
             assert not self.estaVazia() ,'A lista está vazia!'
+            
             return self.__pilha.pop() # Remove no final da lista, o topo.
             
         except AssertionError as AE:
@@ -88,28 +87,30 @@ class Pilha:
             return self.__pilha.clear()
         except:
             pass
-        
     
     #== == Mètodo extra 1... Concatenador de Pilhas.
-    
-    def concatenar(self,outraPilha):
+    def concatenar(self,outraPilha:'Pilha'):
         pilhaAuxiliar=Pilha()
         while not outraPilha.estaVazia():
             pilhaAuxiliar.empilha(outraPilha.desempilha())
         
         while not pilhaAuxiliar.estaVazia():
-            self.empilha(pilhaAuxiliar.desempilha())
-            
+            self.empilha(pilhaAuxiliar.desempilha())           
     
     #== == Mètodo extra 2... Inversor de Pilhas.
-    
-    def inverter(self):
+    def inverter(self):     
         pilhaAuxiliar=Pilha()
+        
         while not self.estaVazia():
             pilhaAuxiliar.empilha(self.desempilha())
         
-        self.__pilha=pilhaAuxiliar.__pilha
-        
+        self.__pilha=pilhaAuxiliar.pilha
+    
+    
+    @property
+    def pilha(self):
+        return self.__pilha
+    
 
     def __str__(self)->str:
         if self.tamanho()==0:

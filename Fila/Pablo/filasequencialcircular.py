@@ -5,10 +5,13 @@ class FilaException(Exception):
 
 class FilaSequencial:
     def __init__(self):
+        
         self.__tamanho_array = 10
         self.__dados = [None for i in range(self.__tamanho_array)]
+        
         self.__inicio = 0
         self.__final = -1
+        
         self.__tamanho_fila = 0
 
     def estaVazia(self)->bool:
@@ -23,7 +26,7 @@ class FilaSequencial:
         
          #posicao: 3
         #  3 % 4  =  3
-        
+
               #I    #F
         #[None,0, 1, 2 ]
         # 0,   1, 2, 3 , 4
@@ -52,7 +55,14 @@ class FilaSequencial:
             #     cont = 0
             
         return -1
-
+    
+    def elemento(self, posicao:int):
+        cont= 0
+        
+        while True:
+            
+        
+        
     def enfileira(self, valor: any):
         """Insere um nó no final da fila
         
@@ -77,8 +87,11 @@ class FilaSequencial:
         try:
             # verifica se há espaços disponíveis na fila para enfileirar
             assert self.__tamanho_fila < self.__tamanho_array
+    
             # move o final para uma posição disponível do array
-            self.__final = (self.__final + 1) % self.__tamanho_array
+            
+            self.__final = (self.__final + 1 ) % self.__tamanho_array
+                       
             # insere na posição disponível o novo valor
             self.__dados[self.__final] = valor #!! !! !! !! ERRO, Não foi iniciado a lista de dados
             # aumenta o tamanho da fila em um
@@ -89,7 +102,6 @@ class FilaSequencial:
     def desenfileira(self) -> any:
         '''
         Remove e retorna o primeiro elemento da Fila sequencial.
-        
         
         2 3 4 5 10
         final                                        inicio    
@@ -102,12 +114,12 @@ class FilaSequencial:
             #Verifica se a fila não está Vazia
             assert not self.estaVazia()
             #salva o valor que está no inicio            
-            inicio = self.__dados[self.__inicio]
+            valorInicial = self.__dados[self.__inicio]
             # move o inicio para a proxima posição da fila
             self.__inicio = (self.__inicio + 1) % self.__tamanho_array
             #diminui o tamanho da fila em um
             self.__tamanho_fila -= 1
             #retorna o valor anteriormente salvo que estava no inicio
-            return inicio
+            return valorInicial
         except AssertionError:
             raise FilaException(f'A fila já está Vazia')
