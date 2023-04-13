@@ -33,22 +33,20 @@ class FilaSequencial:
         
         #posicao: 4
         #  posicao  % 4  =  0
+        posicaoArray= self.__inicio
+        """Procura a posição de um elemento na fila."""
         
-        cont = self.__inicio
-        """Proca a posição de um elemento na fila."""
-        
-        for i in range(self.__tamanho_fila):  #0      4
-            
+        for posicaoFila in range(self.__tamanho_fila):  #0      4
             #         cF  I
             #[ 3, 4 , 5, 6 ]    #valor  7
             #  0,  1, 2, 3
             # return -1
             
-            if(self.__dados[cont] == valor):
-                return cont + 1
+            if(self.__dados[posicaoArray] == valor):
+                return posicaoFila + 1
             
-            cont = (cont + 1) % self.__tamanho_array 
-            
+            posicaoArray = (posicaoArray + 1) % self.__tamanho_array 
+
             #cont= (3  + 1) %  4 = 0  
             
             # if cont == self.__tamanho_array:
@@ -57,9 +55,25 @@ class FilaSequencial:
         return -1
     
     def elemento(self, posicao:int):
-        cont= 0
+        '''
+        Este método retornar o valor de um elemento dentro da fila circular em questão da fila e não do tamanho limite 
+        '''
+        '''
+        Na fila circular não se é possível saber a posicao certa de um elemento, pois este pode ocupar uma posição aleatória dentro do array.
+        Devido a isto, devemos percorrer, com um posicaoArray, a nossa fila começando pela posição inicial, até que o posicaoArray atinja a posição desejada.
+        '''
+        if posicao >self.__tamanho_fila or posicao<=0:
+            raise FilaException('Posição Inválida! ')       
         
-        while True:
+        posicaoArray= self.__inicio #o posicaoArray irá começar no primeiro nó da fila.
+        posicaoFila=1
+        
+        while posicaoFila<=self.__tamanho_fila:
+            if posicaoFila ==posicao:
+                return self.__dados[posicaoArray]
+            
+            posicaoArray=  (posicaoArray + 1) % self.__tamanho_array # utilizamos a fórmula para deslocar o posicaoArray
+            posicaoFila+=1
             
         
         
@@ -123,3 +137,17 @@ class FilaSequencial:
             return valorInicial
         except AssertionError:
             raise FilaException(f'A fila já está Vazia')
+        
+    def __str__(self) -> str:
+        s=''
+        posicaoArray=self.__inicio
+        posicaoFila=1
+        
+        while posicaoFila<= self.__tamanho_fila:
+            s+= f'|{posicaoFila}: {self.__dados[posicaoArray]:^2} |' 
+            posicaoFila+=1
+            posicaoArray= (posicaoArray + 1)% self.__tamanho_array
+        
+        s+= f'\n fila tamanho: {self.__tamanho_fila}, tamanho limite: {self.__tamanho_array}'
+        
+        return s
