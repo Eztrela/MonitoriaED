@@ -153,3 +153,49 @@ class filaEncadeadaNoCabeca:
     #         out.empilha(t.desempilha())
 
     #     return out
+    
+    def remover(self, posicao:int):
+        '''Remove o nó da Fila, '''
+        if self.estaVazia():
+            raise FilaException('Fila vazia')
+        
+        if posicao<=0 or posicao> len(self):
+            raise FilaException('Posicão inválida')
+        
+        for posicaoCursor in range (len(self) ): #Percorrerá toda a fila
+            
+            nodeRemovido= self.desenfileira() # removi o elemento
+            
+            if posicaoCursor + 1 != posicao: # Checamos se a 
+                self.enfileira(nodeRemovido)
+    
+    '''
+    2ª solucação
+    '''
+    def remover2(self, posicao):
+        
+        if self.estaVazia():
+            raise FilaException('Fila vazia')
+        
+        if posicao<=0 or posicao> len(self):
+            raise FilaException('Posicão inválida')
+        
+        for posicaoCursor in range (len(self) ): #Percorrerá toda a fila
+            
+            if posicaoCursor + 1 != posicao: # Checamos se a 
+                self.enfileira(self.desenfileira())
+            
+            else:
+                self.desenfileira()
+    
+    def inverte(self) ->None:
+        fila_aux = filaEncadeadaNoCabeca()
+    
+        for i in range(self.tamanho(), 0, -1): # este laço irá iniciar no final da fila
+            '''Responsável por criar a fila com os elementos inversamente'''
+            fila_aux.enfileira(self.elemento(i)) # a fila auxiliar irá adicionar os elementos de trás para frente da fila.
+    
+        for i in range(fila_aux.tamanho()): #Este laço será responsável por inserir
+            '''Responsável por remover os elementos da fila atual e inserir os elementos inversos'''
+            self.desenfileira() # Remove o primeiro elemento da fila original.
+            self.enfileira(fila_aux.desenfileira()) #adiciona no final o elemento da ordem inversa.

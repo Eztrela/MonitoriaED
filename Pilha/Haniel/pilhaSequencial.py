@@ -17,6 +17,10 @@ class Pilha:
 #== == == == Método para checar o tamanho da Pilha
     def tamanho(self):
         return len(self.__pilha)
+    
+    def __len__(self):
+        return len(self.__pilha)
+    
 
 #== == == == Método que retornára o contéudo de um nó dependendo da possição exigida.
     def elemento(self, posicao:int)->any:
@@ -119,3 +123,21 @@ class Pilha:
         for i in range(len(self.__pilha)):
             s+= f'=|Nó {i+1}: {self.__pilha[i]} |= '
         return s + f'\n tamanho: {len(self.__pilha)}'
+    
+    
+    def subTopo(self)->any:
+        '''Retorna o elemento pós o topo da pilha'''
+        
+        if len(self)<=1:
+            raise PilhaException('A pilha não possui Subtopo')
+        
+        return self.elemento(2)
+    
+    
+    def base(self)->any:
+        '''Retorna o elemento no final da pilha'''
+        if self.estaVazia():
+            raise PilhaException('Pilha Vazia')
+        
+        return self.elemento(len(self))
+    

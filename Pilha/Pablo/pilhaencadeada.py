@@ -108,6 +108,7 @@ class pilha():
 
     @classmethod
     def doubleconcatena(cls, pilha1: object, pilha2: object) -> object:
+
         out = pilha()
         pilhaAuxiliar = pilha()
 
