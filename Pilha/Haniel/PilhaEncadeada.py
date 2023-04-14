@@ -202,11 +202,24 @@ class Pilha:
         '''
         Retorna True se foi possível inverter a pilha ou False caso contrário
         '''
+        pilhaAuxiliar= Pilha()
+        while not(self.estaVazia()):
+            pilhaAuxiliar.empilha(self.desempilha())
+        
+        self.__topo= pilhaAuxiliar.topo
+        
+        
     
     
-    def concatena( self, pilha2:'Pilha'):
+    def concatena( self, pilha2:'Pilha')->None:
         '''
             Recebe uma segunda pilha p2, e transfira todos os elementos da pilha p2 para o topo da pilha responsável pela invocação da operação.
         '''
         
-        pass
+        pilhaAuxiliar=Pilha()
+        
+        while not(pilha2.estaVazia()):
+            pilhaAuxiliar.empilha(pilha2.desempilha())
+        
+        while not(pilhaAuxiliar.estaVazia()):
+            self.empilha(pilhaAuxiliar.desempilha())

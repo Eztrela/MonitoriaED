@@ -68,7 +68,8 @@ opcoesPilha={
     'L':'Limpar a Pilha',#8
     'C': 'Inverter Ordem da Pilha',#9
     'N':'Escolher Outra Pilha',#10
-    'Z':'Concatenar duas pilhas',
+    'Q':'Concatenar duas pilhas',
+    'Z':'Criar Pilha através de Concatenação',
     'U':'Conversão dec/bin',
     'O':'Checar Frase Palindroma',
     'F':'Finalizar o programa'#-
@@ -132,6 +133,14 @@ while True:
         
         elif escolha=='P':#Descobre o nó pela posição
             print(pilhaAtual.elemento(posicaoNode))
+        
+        elif escolha=='Q': #concatena duas pilhas
+            posicaoPilha1=int(input(f"[1 - {len(pilhasLista)}] 1ª Pilha\n Digite a pilha que deseja concatenar: "))-1
+            if (posicaoPilha1> len(pilhasLista) or posicaoPilha1<0):
+                raise Exception('Posicao Inválida')
+            
+            pilhaAtual.concatena(pilhasLista[posicaoPilha1])
+            
         
         elif escolha=='B': #Recebe uma chaveBusca, busca a posição de um nó
             print(pilhaAtual.busca(chaveBusca))
