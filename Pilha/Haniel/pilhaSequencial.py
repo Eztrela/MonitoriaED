@@ -133,7 +133,7 @@ class Pilha:
         
         return self.elemento(2)
     
-    
+      
     def base(self)->any:
         '''Retorna o elemento no final da pilha'''
         if self.estaVazia():
