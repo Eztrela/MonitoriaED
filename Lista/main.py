@@ -1,9 +1,29 @@
 import os
 import time
-from ListaEncadeada import *
+from listaEncadeada import *
 #from listaSequencial import *
 
 
+L1=Lista()
+
+L1.inserir(1)
+L1.inserir(2,1)
+L1.inserir(3,3)
+L1.inserir(4,2)
+L1.inserir(5,1)
+L1.inserir(6,2)
+L1.inserir(7,545)
+
+
+print(L1)
+print('=-'*30)
+
+print(L1.remover(1))
+print(L1.remover(3))
+print(L1.remover(2))
+print(L1.remover(1))
+print(L1)
+""" 
 def MostrarDicionario(dicionario:dict, Chave:str = '0'):
 
     if dicionario.get(Chave,False)==False:
@@ -97,4 +117,4 @@ while True:
     except Exception as E:
         os.system('clear')
         print(E)
-        time.sleep(2)
+        time.sleep(2) """
