@@ -6,14 +6,20 @@ from listaEncadeada import *
 
 L1=Lista()
 
-L1.inserir(1)
+L1.inserir(1,1000)
+print(L1)
 L1.inserir(2,1)
+print(L1)
 L1.inserir(3,3)
+print(L1)
 L1.inserir(4,2)
+print(L1)
 L1.inserir(5,1)
+print(L1)
 L1.inserir(6,2)
+print(L1)
 L1.inserir(7,545)
-
+print(L1)
 
 print(L1)
 print('=-'*30)
@@ -117,4 +123,5 @@ while True:
     except Exception as E:
         os.system('clear')
         print(E)
-        time.sleep(2) """
+        time.sleep(2) 
+"""

@@ -1,3 +1,4 @@
+
 #== == == == lista Exception
 class ListaException(Exception):
     def __init__(self, msg):
@@ -21,33 +22,36 @@ class Lista:
     def estaVazia(self):
         return self.__inicio==None
 
-    def inserir(self,valor:any,posicao:int=1):
-        if posicao<1 : raise ListaException("Posição Inválida") # a posição não pode ser menor que 1 ou maior que a quantidade de nós
-        NewNode=Node(valor) #criamos o nó
     
-        if posicao==1 or self.estaVazia(): #checamos se a posição inserida pelo usuário foi "1" e a lista está vazia, no caso, a primeira
-            NewNode.prox=self.__inicio
-            self.__inicio=NewNode  
-               
-        else: #caso a posicao tenha sido qualquer outra
-            #posicao-=1 #Decrementamos 1, para que quando entrar no laço, o cursor pare uma posição antes
+    def inserir(self, valor:any,posicaoDesejada:int=1):
+        if posicaoDesejada < 1: raise ListaException("Posição inválida")
+        
+        NewNode=Node(valor) 
+        
+        if posicaoDesejada==1:
+            NewNode.prox= self.__inicio
+            self.__inicio= NewNode
+        
+        else:
             cursor=self.__inicio
-            cursorPosicao=1
+            posicaoCursor=1
+            
             while cursor!=None:
-
-                if cursorPosicao+1 ==posicao: #checamos se o cursor parou uma casa antes da posição
-                    NewNode.prox=cursor.prox # o Novo nó aponta para o que o nó apontado pelo cursor aponta
-                    cursor.prox=NewNode # agora, o apontado pelo cursor aponta ao novo nó.
-                    break # encerramos o o laço
-                
-                elif cursor.prox==None: #inserir na condição de que a quantidade foi superior ao tamanho da Lista
-                    cursor.prox=NewNode
+                if posicaoCursor + 1 == posicaoDesejada:
+                    NewNode.prox= cursor.prox
+                    cursor.prox= NewNode
                     break
                 
-                cursor=cursor.prox 
-                cursorPosicao+=1
-                    
+                elif cursor.prox==None: # o cursor chegou no final da lista
+                    cursor.prox=NewNode
+                    break
+                    #NewNode.ant=cursor
+                
+                cursor=cursor.prox
+                posicaoCursor+=1
+                
         self.__quantidadeNode+=1
+                
         
     def remover(self,posicao:int):
         if self.__quantidadeNode< posicao or posicao <1: raise ListaException("Posição Inválida")
