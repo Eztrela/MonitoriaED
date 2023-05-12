@@ -6,4 +6,8 @@ def decToBin(num: int) -> int:
     print(num % 2, end='')
 
 
-decToBin(8)
+decToBin(1)
+
+'''
+
+'''
