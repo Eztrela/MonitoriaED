@@ -18,7 +18,7 @@ class ArvoreBinaria:
             self.__raiz = carga_da_raiz  # a árvore se inicia vazia
 
         else:
-            self.__raiz= No(carga_da_raiz)
+            self.__raiz = No(carga_da_raiz)
 
         self.__cursor = self.__raiz
 
@@ -153,51 +153,99 @@ class ArvoreBinaria:
         
         else:
             return self.__go(chave,no.dir)
-    """ 
-    
-    def busca(self,key:any)->bool:
-        
-        return self.__busca(key,self.__raiz)
-            
-    
-    def __busca(self,key:any, nodeComparado:No)->bool:
-        
-        if nodeComparado==None:
+    """
+
+    def busca(self, key: any) -> bool:
+
+        return self.__busca(key, self.__raiz)
+
+    def __busca(self, key: any, nodeComparado: No) -> bool:
+
+        if nodeComparado == None:
             return False
 
-        elif nodeComparado.carga== key: 
+        elif nodeComparado.carga == key:
             return True
-        
+
         else:
-            if self.__busca(nodeComparado.esq):
+            if self.__busca(key, nodeComparado.esq):
                 return True
-                    
+
             else:
-                if self.__busca(nodeComparado.dir):
+                if self.__busca(key, nodeComparado.dir):
                     return True
 
-
-    def go(self, chave:any )->any: # retorna a carga
-        no = self.__go(chave,self.__raiz)
+    def go(self, chave: any) -> any:  # retorna a carga
+        no = self.__go(chave, self.__raiz)
         if no is not None:
             return no.carga
         else:
             return None
-    
-    def __go(self, chave:int, no:No)->No:
-        
+
+    def __go(self, chave: int, no: No) -> No:
+
         recuperado = no
-        
+
         if no is None:
             return None
-        
+
         if chave == no.carga:
-            return recuperado       
-        
-        recuperado = self.__go(chave,no.esq)
-        
-        if recuperado is not None: # Caso encontre o  nó que contém essa carga enquanto ia para esquerda
             return recuperado
-        
-        else: #caso não ache na esquerda, ele vai testar a direita
-            return self.__go(chave,no.dir)
+
+        recuperado = self.__go(chave, no.esq)
+
+        if recuperado is not None:  # Caso encontre o  nó que contém essa carga enquanto ia para esquerda
+            return recuperado
+
+        else:  # caso não ache na esquerda, ele vai testar a direita
+            return self.__go(chave, no.dir)
+
+    def altura(self):
+        if self.__raiz.esq is None and self.__raiz.dir is None:
+            return 1
+        else:
+            return self.__altura(self.__raiz)
+
+    def __altura(self, no: No) -> int:
+        if no is None:
+            return 0
+        else:
+            return 1 + max(self.__altura(no.esq), self.__altura(no.dir))
+
+    def count(self):
+        return self.__count(self.__raiz)
+
+    def __count(self, no: No) -> int:
+        if no is None:
+            return 0
+        else:
+            return 1 + self.__count(no.esq) + self.__count(no.dir)
+
+    def leafs(self):
+        return self.__leafs(self.__raiz)
+
+    def __leafs(self, no: No) -> int:
+        if no is None:
+            return 0
+        if no.esq is None and no.dir is None:
+            return 1
+        return self.__leafs(no.esq) + self.__leafs(no.dir)
+
+    def getLevel(self, key: any):
+        if self.__raiz.carga == key:
+            return 1
+        else:
+            return self.__getLevel(key, self.__raiz)
+
+    def __getLevel(self, key: any, no: No):
+        level = 0
+        if no is None:
+            return 0
+        if no.carga == key:
+            return 1
+        level = self.__getLevel(key, no.esq)
+        if level:
+            return 1 + self.__getLevel(key, no.esq)
+        level = self.__getLevel(key, no.dir)
+        if level:
+            return 1 + self.__getLevel(key, no.dir)

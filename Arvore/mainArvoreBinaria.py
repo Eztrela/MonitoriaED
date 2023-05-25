@@ -34,3 +34,25 @@ print(arv.removeEsq())
 arv.preordem() """
 
 print(arv.go(8))
+
+
+
+'================= Lista 10.1 ==================='
+
+#Q2
+arvore1 = ArvoreBinaria(1)
+
+arvore1.addEsq(2)
+arvore1.addDir(3)
+arvore1.descerEsquerda()
+arvore1.addDir(4)
+arvore1.resetCursor()
+arvore1.descerDireita()
+arvore1.addEsq(5)
+arvore1.addDir(6)
+arvore1.emordem()
+
+#Q3
+
+arvore1.preordem()
+print(arvore1.getLevel(5))
