@@ -15,7 +15,8 @@ class Node:
     
     def __eq__(self, __value: object) -> bool:
         return self.__key ==self.__key
-#== == == ==Classe que contém todos os métodos aárvore binária
+
+#== == == ==Classe que contém todos os métodos a árvore binária
 class ArvoreBusca:
     #== == == Método que cria a raiz               
     def __init__(self, carga_da_raiz=None):
@@ -35,11 +36,3 @@ class ArvoreBusca:
     def estaVazia(self)->bool:
         if self.__raiz==None: return True
         else: return False
-    
-    #== == == Retorna o Nó raiz, caso ele exista            
-    def getRaiz(self)->any:
-        try:
-            assert self.__raiz  !=  None 
-            return self.__raiz
-        except AssertionError:
-            raise SearchArborException(1,'NO ROOT!')

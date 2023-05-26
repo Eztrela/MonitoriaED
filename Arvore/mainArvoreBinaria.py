@@ -53,6 +53,13 @@ arvore1.addDir(6)
 arvore1.emordem()
 
 #Q3
+print()
+arvore1.preordem()
+print()
+print(arvore1.getLevel(5))
+
+#print(arvore1.getCursor())
+
+arvore1.libera(1)
 
 arvore1.preordem()
-print(arvore1.getLevel(5))

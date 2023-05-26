@@ -20,7 +20,7 @@ class ArvoreBinaria:
         else:
             self.__raiz = No(carga_da_raiz)
 
-        self.__cursor = self.__raiz
+        self.cursor = self.__raiz
 
     def estaVazia(self) -> bool:
         return self.__raiz == None
@@ -36,7 +36,7 @@ class ArvoreBinaria:
         return self.__raiz.carga if self.__raiz is not None else None
 
     def getCursor(self) -> any:
-        return self.__cursor.carga if self.__cursor is not None else None
+        return self.cursor.carga if self.cursor is not None else None
 
     def preordem(self):
         self.__preordem(self.__raiz)
@@ -66,48 +66,48 @@ class ArvoreBinaria:
             print(f'{no.carga}', end=' ')
 
     def descerEsquerda(self):
-        if self.__cursor is not None and self.__cursor.esq is not None:
-            self.__cursor = self.__cursor.esq
+        if self.cursor is not None and self.cursor.esq is not None:
+            self.cursor = self.cursor.esq
 
     def descerDireita(self):
-        if self.__cursor is not None and self.__cursor.dir is not None:
-            self.__cursor = self.__cursor.dir
+        if self.cursor is not None and self.cursor.dir is not None:
+            self.cursor = self.cursor.dir
 
     def resetCursor(self):
-        self.__cursor = self.__raiz
+        self.cursor = self.__raiz
 
     def __ehFolha(self, no: 'No'):
         return no.esq == None and no.dir == None
 
     def removeEsq(self) -> any:
-        if self.__cursor is not None and self.__cursor.esq is not None and self.__ehFolha(self.__cursor.esq):
-            carga = self.__cursor.esq.carga
-            self.__cursor.esq = None
+        if self.cursor is not None and self.cursor.esq is not None and self.__ehFolha(self.cursor.esq):
+            carga = self.cursor.esq.carga
+            self.cursor.esq = None
             self.__tamanho -= 1
             return carga
         else:
             return None
 
     def removeDir(self) -> any:
-        if self.__cursor is not None and self.__cursor.dir is not None and self.__ehFolha(self.__cursor.dir):
-            carga = self.__cursor.dir.carga
-            self.__cursor.dir = None
+        if self.cursor is not None and self.cursor.dir is not None and self.__ehFolha(self.cursor.dir):
+            carga = self.cursor.dir.carga
+            self.cursor.dir = None
             self.__tamanho -= 1
             return carga
         else:
             return None
 
     def addEsq(self, carga: any) -> bool:
-        if self.__cursor is not None and self.__cursor.esq is None:
-            self.__cursor.esq = No(carga)
+        if self.cursor is not None and self.cursor.esq is None:
+            self.cursor.esq = No(carga)
             self.__tamanho += 1
             return True
         else:
             return False
 
     def addDir(self, carga) -> bool:
-        if self.__cursor.dir is None:
-            self.__cursor.dir = No(carga)
+        if self.cursor.dir is None:
+            self.cursor.dir = No(carga)
             self.__tamanho += 1
             return True
         else:
@@ -249,3 +249,61 @@ class ArvoreBinaria:
         level = self.__getLevel(key, no.dir)
         if level:
             return 1 + self.__getLevel(key, no.dir)
+
+
+    def vazia(self,node:No):
+        return node.esq is None and node.dir is None
+        
+ 
+    def libera(self,key:any)->None:
+        
+        if self.__raiz.carga==key:
+            self.__liberaRemove(self.__raiz)
+            self.__raiz=None
+            return
+            
+        noPai= self.__liberaBusca(key,self.__raiz)
+        
+        if noPai is None:
+            return
+        
+        elif noPai[1]==0:
+            noPai[0].esq=self.__liberaRemove(noPai[0].esq)
+        
+        else:
+            noPai[0].dir=self.__liberaRemove(noPai[0].dir)
+            
+    
+    def __liberaRemove(self, node:No ):
+        
+        if node is None:
+            return
+        
+        if ( not self.vazia( node )):
+            
+            node.esq= self.libera(node.esq) 
+            
+            node.dir= self.libera(node.dir)
+            
+            return None
+        
+        return None
+    
+    def __liberaBusca(self,key:any, node:No):
+
+        if node.esq is None or node.dir is None:
+            return      
+        
+        if node is None:
+            return  
+        nodeRecuperado=node
+        
+        if nodeRecuperado.esq.carga== key:
+            return (nodeRecuperado,0) #se achar a esquerda retorna 0
+        
+        elif nodeRecuperado.dir.carga== key:
+            return (nodeRecuperado,1) #se for a direita retorna 1
+        
+        self.__liberaBusca(key,nodeRecuperado.esq)
+        
+        self.__liberaBusca(key,nodeRecuperado.dir) 
