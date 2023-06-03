@@ -1,3 +1,4 @@
+
 class No:
     def __init__(self, carga: any):
         self.carga = carga
@@ -15,7 +16,7 @@ class ArvoreBinaria:
         self.__tamanho = 0
 
         if carga_da_raiz is None:  # caso nenhum valor tenha sido mandado
-            self.__raiz = carga_da_raiz  # a árvore se inicia vazia
+            self.__raiz = None  # a árvore se inicia vazia
 
         else:
             self.__raiz = No(carga_da_raiz)
@@ -28,7 +29,8 @@ class ArvoreBinaria:
     def criaRaiz(self, carga: any):
         if self.__raiz is None:
             self.__raiz = No(carga)
-            self.__tamanho += 1
+            self.cursor = self.__raiz
+            
         else:
             raise Exception('A árvore já possui uma raiz!')
 
@@ -42,9 +44,12 @@ class ArvoreBinaria:
         self.__preordem(self.__raiz)
 
     def __preordem(self, no: No):
+        
         if no is not None:
             print(f'{no.carga}', end=' ')
+            
             self.__preordem(no.esq)
+            
             self.__preordem(no.dir)
 
     def emordem(self):
@@ -60,11 +65,14 @@ class ArvoreBinaria:
         self.__posordem(self.__raiz)
 
     def __posordem(self, no):
-        if no is not None:
-            self.__posordem(no.esq)
-            self.__posordem(no.dir)
-            print(f'{no.carga}', end=' ')
+        if no is None:
+            return
+        
+        self.__posordem(no.esq)
+        self.__posordem(no.dir)
+        print(f'{no.carga}', end=' ')
 
+    '''Cursor'''
     def descerEsquerda(self):
         if self.cursor is not None and self.cursor.esq is not None:
             self.cursor = self.cursor.esq
@@ -106,7 +114,7 @@ class ArvoreBinaria:
             return False
 
     def addDir(self, carga) -> bool:
-        if self.cursor.dir is None:
+        if self.cursor is not None and self.cursor.dir is None:
             self.cursor.dir = No(carga)
             self.__tamanho += 1
             return True
@@ -116,44 +124,6 @@ class ArvoreBinaria:
     def __len__(self):
         return self.__tamanho
 
-    """  
-    def busca(self, chave:any)->bool:
-        return self.__busca(chave, self.__raiz)
-    
-    def __busca(self, chave:any, no:No):
-        if no is None:
-            return False
-        if chave == no.carga:
-            return True
-        if self.__busca(chave,no.esq):
-            return True
-        else:
-            return self.__busca(chave,no.dir) 
-        
-    
-    def go(self, chave:any )->any: # retorna a carga
-        no = self.__go(chave,self.__raiz)
-        if no is not None:
-            return no.carga
-        else:
-            return None
-    
-    def __go(self, chave:int, no:No)->No:
-        
-        if no is None:
-            return None
-        
-        if chave == no.carga:
-            return no       
-        
-        recuperado = self.__go(chave,no.esq)
-        
-        if recuperado is not None: # Caso encontre o  nó que contém essa carga
-            return recuperado
-        
-        else:
-            return self.__go(chave,no.dir)
-    """
 
     def busca(self, key: any) -> bool:
 
@@ -168,13 +138,16 @@ class ArvoreBinaria:
             return True
 
         else:
-            if self.__busca(key, nodeComparado.esq):
+            if self.__busca(key, nodeComparado.esq) :
                 return True
 
             else:
                 if self.__busca(key, nodeComparado.dir):
                     return True
-
+        
+        return False
+    
+    
     def go(self, chave: any) -> any:  # retorna a carga
         no = self.__go(chave, self.__raiz)
         if no is not None:

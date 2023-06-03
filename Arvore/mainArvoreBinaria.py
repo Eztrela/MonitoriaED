@@ -1,6 +1,7 @@
 from arvoreBinaria import ArvoreBinaria
 
-arv = ArvoreBinaria(40)
+arv = ArvoreBinaria()
+arv.criaRaiz(40)
 arv.addEsq(32)
 arv.addDir(27)
 arv.descerEsquerda()
