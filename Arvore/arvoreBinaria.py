@@ -280,3 +280,21 @@ class ArvoreBinaria:
         self.__liberaBusca(key,nodeRecuperado.esq)
         
         self.__liberaBusca(key,nodeRecuperado.dir) 
+        
+    
+    '''
+    def count(self)->int:
+        return self.__count(self.__raiz)
+    
+    
+    def __count(self, no:'No')->int:
+        if no is None: # condição de parada
+            return 0
+
+        quantidadeNodes=1
+        
+        quantidadeNodes+= self.__count(no.esq)
+        quantidadeNodes += self.__count(no.dir)
+        
+        return quantidadeNodes
+    '''
