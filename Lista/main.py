@@ -1,10 +1,10 @@
 import os
 import time
-from listaEncadeada import *
-#from listaSequencial import *
+#from listaEncadeada import *
+from listaSequencial import *
 
 
-L1=Lista()
+""" L1=Lista()
 
 L1.inserir(1,1000)
 print(L1)
@@ -28,7 +28,7 @@ print(L1.remover(1))
 print(L1.remover(3))
 print(L1.remover(2))
 print(L1.remover(1))
-print(L1)
+print(L1) """
 """ 
 def MostrarDicionario(dicionario:dict, Chave:str = '0'):
 
@@ -125,3 +125,24 @@ while True:
         print(E)
         time.sleep(2) 
 """
+
+lista1=Lista()
+
+lista1.inserir(1,1)
+lista1.inserir(1,2)
+lista1.inserir(1,3)
+lista1.inserir(1,4)
+
+lista2=Lista()
+lista2.inserir(1,1)
+lista2.inserir(1,3)
+lista2.inserir(1,5)
+lista2.inserir(1,6)
+lista2.inserir(1,9)
+
+'''
+#Lista1 [1,2,3,4]
+#Lista2 [1,3,5,6,9]
+#Interseção [1,3]
+'''
+print(Lista.intersecao(lista1,lista2))

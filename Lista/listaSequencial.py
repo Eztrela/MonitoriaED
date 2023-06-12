@@ -103,3 +103,26 @@ class Lista:
         while not(outraLista.estaVazia()):
             NodeRemovido=outraLista.remover(1)
             self.inserir(NodeRemovido)
+            
+    
+    @classmethod
+    def intersecao(self,lista1:'Lista', lista2:'Lista')->'Lista':
+        
+        listaAuxiliar=Lista()
+        for  i in range(lista1.tamanho()):
+            nodeLista1= lista1.elemento( i + 1)
+
+            for j in range(lista2.tamanho()):
+                
+                if lista2.elemento(j + 1)== nodeLista1:
+                        try:
+                            listaAuxiliar.busca(nodeLista1)
+                        except:
+                            listaAuxiliar.inserir(listaAuxiliar.tamanho() + 1,nodeLista1)
+            
+        return listaAuxiliar
+            
+                        
+        
+                        
+        

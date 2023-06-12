@@ -10,8 +10,6 @@ class Node:
         self.carga= carga # elemento armazenado
         self.prox=None # para quem ele aponta na lista
 
-
-
 #== == == == A estrutura de dado lista, ou LIFO.
 class Lista:
     def __init__(self):
@@ -22,6 +20,7 @@ class Lista:
         return self.__inicio==None
 
     def inserir(self,valor:any,posicao:int=1):
+        
         if posicao<1 : raise ListaException("Posição Inválida") # a posição não pode ser menor que 1 ou maior que a quantidade de nós
         NewNode=Node(valor) #criamos o nó
     
@@ -33,9 +32,10 @@ class Lista:
             #posicao-=1 #Decrementamos 1, para que quando entrar no laço, o cursor pare uma posição antes
             cursor=self.__inicio
             cursorPosicao=1
+            
             while cursor!=None:
 
-                if cursorPosicao+1 ==posicao: #checamos se o cursor parou uma casa antes da posição
+                if cursorPosicao + 1 ==posicao: #checamos se o cursor parou uma casa antes da posição
                     NewNode.prox=cursor.prox # o Novo nó aponta para o que o nó apontado pelo cursor aponta
                     cursor.prox=NewNode # agora, o apontado pelo cursor aponta ao novo nó.
                     break # encerramos o o laço
@@ -86,5 +86,4 @@ class Lista:
             
             cursor= cursor.prox
     
-            
         return todaLista

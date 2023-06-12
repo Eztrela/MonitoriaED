@@ -9,8 +9,7 @@ class No:
     
     def __eq__(self, no:'No'):
         return self.carga == no.carga
-    
-    
+
 #== == == ==Classe que contém todos os métodos a árvore binária
 class ArvoreBusca:
     #== == == Método que cria a raiz               
@@ -19,7 +18,8 @@ class ArvoreBusca:
         
         self.__tamanho= 0
 
-    ''' Exemplo de árvore binária com busca
+    ''' 
+    Exemplo de árvore binária com busca
                     20
                 11        24
              5         21     49
@@ -132,7 +132,6 @@ class ArvoreBusca:
         else:
             return self.__go(key, self.__raiz)
         
-    
     def __go(self, valorProcurado, nodeAtual:No)->'No':
     
         if nodeAtual is None: 
