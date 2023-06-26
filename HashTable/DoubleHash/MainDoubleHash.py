@@ -6,25 +6,27 @@ size = 10
 table1 = DoubleHashing(size)
  
 # storing elements in table
-table1.put(12)
+table1.put("A",12)
 table1.display()
-table1.put(31)
+table1.put("B",31)
 table1.display()
-table1.put(90)
+table1.put("C",90)
 table1.display()
-table1.put(28)
+table1.put(1,28)
 table1.display()
-table1.put(88)
+table1.put("E",88)
 table1.display()
-table1.put(40)
+table1.put("F",40)
 table1.display()
-table1.put(77)       # element that causes collision at position 0
+table1.put("G",77)       # element that causes collision at position 0
 table1.display()
 table1.put(26,"Olá!")
-input()
+#input()
 table1.display()
-table1.put(17)
-input() 
+#table1.put(2,17)           # Dando errado.
+table1.put(17)           
+
+#input() 
 table1.display()
 
 # displaying the Table
@@ -37,19 +39,34 @@ print('O tamanho da HashTable é: ',len(table1) )
 #== == == Questão f
 print("Tentando pegar o valor da chave 26")
 print(table1.get(26))
-input()
+#input()
 print("Tentando pegar o valor da chave 34")
 try:
     print(table1.get(34))
 except KeyError:
     print("Chave 34 não encontrada")
-input()
-''' 
+#input()
+print('Listando todas as chaves')
+print(table1.keys())
+print('Listando todas os valores')
+print(table1.values())
+
+table1.clear()
+table1.display()
 
 
-# printing position of elements
-print("The position of element 31 is : " + str(table1.search(31)))
-print("The position of element 28 is : " + str(table1.search(28)))
+table1['F']=1
+table1['E']=2
+table1['R']=3
+table1['A']=4
+table1['S']=5
+table1['O']=6
+
+table1.display()
+'''O
+# pOinting position of elements
+priOt("The position of element 31 is : " + str(table1.search(31)))
+priOt("The position of element 28 is : " + str(table1.search(28)))
 print("The position of element 90 is : " + str(table1.search(90)))
 print("The position of element 77 is : " + str(table1.search(77)))
 print("The position of element 1 is : " + str(table1.search(1)))
