@@ -1,0 +1,165 @@
+[33mcommit b1e19168b7f6de42c0e0e456ab290c99c6ffc944[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Haniel Costa da Silva <hanielcosta.ti@gmail.com>
+Date:   Mon Jun 19 11:02:01 2023 -0300
+
+    adicionado o assunto de hashtable
+
+[33mcommit e67a653e719abb8c845db0fcccd07f6bb4d45099[m
+Author: Haniel Costa da Silva <hanielcosta.ti@gmail.com>
+Date:   Fri Jun 16 21:48:17 2023 -0300
+
+    Iniciado uma revisão sobre a lista 11
+
+[33mcommit f1e7ad6a36228b7e1a85b9c35835ed3e8e0e7efa[m
+Author: Haniel Costa da Silva <hanielcosta.ti@gmail.com>
+Date:   Mon Jun 12 20:58:21 2023 -0300
+
+    revisão em arvore e lista
+
+[33mcommit 311e464fd90c836c3c317e6eccd490ff2034ccd6[m
+Author: Haniel Costa da Silva <hanielcosta.ti@gmail.com>
+Date:   Sun Jun 11 14:04:17 2023 -0300
+
+    dada uma revisada no método count
+
+[33mcommit c17003964bc83553358ca5748277afeba06729aa[m
+Author: Haniel Costa da Silva <hanielcosta.ti@gmail.com>
+Date:   Fri Jun 2 22:44:47 2023 -0300
+
+    Adicionado o assunto de arvores de busca
+
+[33mcommit e1b51a5d58195b8c160438160fabaec527fa26b2[m
+Author: Haniel Costa da Silva <hanielcosta.ti@gmail.com>
+Date:   Thu May 25 21:43:43 2023 -0300
+
+    realizado o metodo libera na AB
+
+[33mcommit e26ba8a261c1903342f119bb209a914591ad06e7[m
+Merge: c42d396 b82e42e
+Author: Haniel Costa da Silva <hanielcosta.ti@gmail.com>
+Date:   Thu May 25 20:04:55 2023 -0300
+
+    Merge branch 'main' of https://github.com/Eztrela/MonitoriaED
+
+[33mcommit c42d396eaa4e48c480feb9abf57820ceb41294c7[m
+Author: Haniel Costa da Silva <hanielcosta.ti@gmail.com>
+Date:   Thu May 25 20:03:53 2023 -0300
+
+    Create arvoreBusca.py
+
+[33mcommit b82e42e3f0efc2667138c6e8f730d4be07e48dee[m
+Author: Pablo de Lima Marques Estrela <102769647+Eztrela@users.noreply.github.com>
+Date:   Wed May 24 21:12:11 2023 -0300
+
+    adicionando resolução de questões da lista 10.1 de arvore binária
+
+[33mcommit 06284f593ef80957f501cfcf127ccf05599ed582[m
+Author: Haniel Costa da Silva <hanielcosta.ti@gmail.com>
+Date:   Thu May 18 22:12:50 2023 -0300
+
+    adicionado o assunto de arvore binaria
+
+[33mcommit fd332428bc931f4284c3f74a7f6a15f289c5b5a9[m
+Author: Haniel Costa da Silva <hanielcosta.ti@gmail.com>
+Date:   Thu May 11 21:21:44 2023 -0300
+
+    feita uma revisão no assunto de recursividade
+
+[33mcommit b5efec3cdcb21439cc004953423930805d3c33fc[m
+Author: Pablo de Lima Marques Estrela <102769647+Eztrela@users.noreply.github.com>
+Date:   Wed May 10 22:34:06 2023 -0300
+
+    Adicionando primeiros exercício resolvidos lista 9 recursividade Alex
+
+[33mcommit e2c3ed0a0a016f2d13758aef0577125db77af1a7[m
+Author: Haniel Costa da Silva <hanielcosta.ti@gmail.com>
+Date:   Mon May 8 11:22:47 2023 -0300
+
+    correção
+
+[33mcommit f21de84778330c5cc2511bdaf1d6eda26170c9a6[m
+Author: Haniel Costa da Silva <hanielcosta.ti@gmail.com>
+Date:   Mon May 8 11:21:38 2023 -0300
+
+    feita uma revisão no asusnto de lista encadeada
+
+[33mcommit 54b450e7c7ad6fbf62219704599b7bfc481e9f87[m
+Author: Haniel Costa da Silva <hanielcosta.ti@gmail.com>
+Date:   Thu May 4 20:07:46 2023 -0300
+
+    iniciado a implementação de Lista encadeada
+
+[33mcommit 6a42a1535a5b31a98539009c48bf7984da9c2209[m
+Author: Haniel Costa da Silva <hanielcosta.ti@gmail.com>
+Date:   Tue May 2 22:49:57 2023 -0300
+
+    feita uma revisão para a prova turma B
+
+[33mcommit d9f6ed212e880a09cc11538d297dd20b0cc58d66[m
+Author: Haniel Costa da Silva <hanielcosta.ti@gmail.com>
+Date:   Fri Apr 14 10:03:54 2023 -0300
+
+    adicionado o método concatena a pilha encadeada
+
+[33mcommit 5dfe5a0200aa23b7f0bb43068ed869360827f6a6[m
+Author: Haniel Costa da Silva <hanielcosta.ti@gmail.com>
+Date:   Thu Apr 13 22:19:42 2023 -0300
+
+    Feita uma revisão antes da prova e exercitado  da lista e feito novos  exercios
+
+[33mcommit 84a7ca8c9f0e20dc165e4c70218424f5cedecbe9[m
+Author: Haniel Costa da Silva <hanielcosta.ti@gmail.com>
+Date:   Thu Apr 13 22:18:45 2023 -0300
+
+    Feita uma revisão antes da prova e exercitado  da lista e feito novos  exercios
+
+[33mcommit 289157145daa1d4f8968d3923fac9eb0239d4bd7[m
+Author: Haniel Costa da Silva <hanielcosta.ti@gmail.com>
+Date:   Wed Apr 12 23:02:43 2023 -0300
+
+    adicionado o método elemento e modificado o método busca da fila circular
+
+[33mcommit f4942b0e7e123cf95b3e91ff034adea499ffaaa3[m
+Author: Haniel Costa da Silva <hanielcosta.ti@gmail.com>
+Date:   Mon Apr 10 19:48:42 2023 -0300
+
+    feita uma revisão básica de pilha até fila circular
+
+[33mcommit d989fe7313f4e347cb8868f1bac412a353e16b60[m
+Author: Haniel Costa da Silva <hanielcosta.ti@gmail.com>
+Date:   Mon Apr 3 11:02:02 2023 -0300
+
+    Feita explicações a respeito do método conversão binária e explicado o método busca da FSC
+
+[33mcommit 7bafed690b09422e5c5bbe750764bd7391d589f4[m
+Author: Eztrela <pablolm.estrela@gmail.com>
+Date:   Sat Apr 1 14:54:12 2023 -0300
+
+    conversão para binario na pilha encadeada
+
+[33mcommit 356dd7d824dd59c96924646ae7d5e44715d36b0c[m
+Author: Eztrela <pablolm.estrela@gmail.com>
+Date:   Sat Apr 1 11:53:29 2023 -0300
+
+    adicionando materiais sobre Fila
+
+[33mcommit b4e2c71650fffdeaf89bedeb3c4e1c9910ad16be[m
+Author: Pablo de Lima Marques Estrela <102769647+Eztrela@users.noreply.github.com>
+Date:   Thu Mar 30 23:44:51 2023 -0300
+
+    renomeando pilha encadeada
+
+[33mcommit 280e23ca713cfd4d523f7bede0a52e0c7f59768b[m
+Author: Haniel Costa da Silva <hanielcosta.ti@gmail.com>
+Date:   Thu Mar 30 22:56:45 2023 -0300
+
+    Adicionado o assunto de Pilha 30/03/2023
+    
+    Adicionado assunto ministrado por Haniel Costa e Pablo Estrela.
+    Assim como organizado os arquivos.
+
+[33mcommit badd694a7a85d6c593cab03a45ae65caf62833cd[m
+Author: Eztrela <pablolm.estrela@gmail.com>
+Date:   Thu Mar 30 22:42:27 2023 -0300
+
+    adicionando arquivos da pilha

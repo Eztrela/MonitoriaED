@@ -1,4 +1,3 @@
- 
 class DoubleHashing:
     # initialize hash Table
     PRIME = 7
@@ -7,6 +6,9 @@ class DoubleHashing:
         # initialize table with all elements None
         self.table = list(None for i in range(self.size))
         self.usedSlots = 0
+        
+        self.keys= {}
+        
       
     # method that checks if the hash table is full or not
     def isFull(self)->bool:
@@ -31,13 +33,17 @@ class DoubleHashing:
            
    
     # method to insert a new pair of key/value using doublehashing technic
-    def put(self, key):
+    def put(self, key, value=None):
         # testing if the hash table is full
+        if value== None:
+            value=key
+
         if( self.isFull() ):
             return
 
         # primary index (modular hashing)
         i1 = self.h1(key)
+        
 
         # Testing if collision occurs 
         if (self.table[i1] != None): # Yes, we have a collision
@@ -51,27 +57,29 @@ class DoubleHashing:
   
                 # if no collision occurs, store the key 
                 if (self.table[irh] == None):
-                    self.table[irh] = key
+                    self.table[irh] = value
                     break
                 
-                elif (self.table[irh - 1]==None):
+                elif (self.table[irh - 1] == None):
                     irh-=1
-                    self.table[irh] = key
-                    
+                    self.table[irh] = value 
                     break
                 
                 """ 
                 if i > self.size:
                     break
-                """
+            """
                  
                 i += 1 
   
         else: #  No collision occurs 
-            self.table[i1] = key
+            self.table[i1] = value
             irh = i1
 
         self.usedSlots += 1
+        
+        self.keys[key]= irh
+        
         print(f'Key {key} stored at bucket {irh}')
          
 
@@ -93,9 +101,28 @@ class DoubleHashing:
                 if self.table[i] is None:
                     print(f'| {self.table[i]} ',end= "") 
                 else:  
-                    print(f'| {self.table[i]:4d} ',end= "")  
+                    print(f'| {self.table[i]:^4} ',end= "")  
             #print(f'{None if self.table[i] is None else self.table[i]:3d}',end= " | ")
         print("]")
         print("The number of element in the is: " + str(self.usedSlots),end='\n\n')
        
-           
+    #== == == d
+    def __len__(self):
+        return self.usedSlots
+    
+    '''
+       0       1       2      3      4
+    ["Ola","Eu Sou","Haniel",None,"Costa"]
+    
+    {
+        'A': 0
+        'B': 1
+        'C': 2 
+        'D': 4
+    }
+    '''
+    #== == == f
+    def get(self, chave:any) -> any:
+        
+        posicao = self.keys[chave]
+        return self.table[posicao] 

@@ -20,7 +20,8 @@ table1.put(40)
 table1.display()
 table1.put(77)       # element that causes collision at position 0
 table1.display()
-table1.put(26)
+table1.put(26,"Olá!")
+input()
 table1.display()
 table1.put(17)
 input() 
@@ -29,7 +30,23 @@ table1.display()
 # displaying the Table
 table1.display()
 print()
+
+#== == == Questão d
+print('O tamanho da HashTable é: ',len(table1) )
+
+#== == == Questão f
+print("Tentando pegar o valor da chave 26")
+print(table1.get(26))
+input()
+print("Tentando pegar o valor da chave 34")
+try:
+    print(table1.get(34))
+except KeyError:
+    print("Chave 34 não encontrada")
+input()
 ''' 
+
+
 # printing position of elements
 print("The position of element 31 is : " + str(table1.search(31)))
 print("The position of element 28 is : " + str(table1.search(28)))
