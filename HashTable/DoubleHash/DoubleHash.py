@@ -24,7 +24,7 @@ class DoubleHashing:
     # method that returns the index by a second spread function  for a given element
     # The key is the argument have already transformed to an int value
     def __h2(self, key) -> int:
-        return self.__class__.PRIME - (hash(key) % self.__class__.PRIME)
+        return self.__class__.PRIME - ( hash(key) % self.__class__.PRIME)
 
     # method that computes rehashing for a givel element.
     # ih1: means "index computed by h1() method"

@@ -55,7 +55,7 @@ table1.clear()
 table1.display()
 
 
-table1['F']=1
+table1['F'] = 1
 table1['E']=2
 table1['R']=3
 table1['A']=4
