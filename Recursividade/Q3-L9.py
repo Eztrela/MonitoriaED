@@ -1,4 +1,4 @@
-def invertString(palavra: str) -> str:
+""" def invertString(palavra: str) -> str:
     if palavra is '':
         return ''
     #modo 1
@@ -7,7 +7,7 @@ def invertString(palavra: str) -> str:
     #modo 2
     return invertString(palavra[1:]) + palavra[0]
 
-print(invertString('Jessye'))
+print(invertString('Jessye')) """
 # modo 1:
 # 'Jessye' retorna 'e' + invertString('Jessy')
 # 'Jessy' retorna 'y' + invertString('Jess')
@@ -25,3 +25,26 @@ print(invertString('Jessye'))
 # 'ye' retorna invertString('e') + 'y'
 # 'e' retorna invertString('') + 'e'
 # ''  retorna invertString('') + ''
+
+
+def invertString(string:str)->str:
+    if string=='':
+        return ''
+    
+    return invertString(string[ 1 : ]) + string[0]
+
+print( 'Duda invertido: ', invertString('Duda'))
+
+'''
+Gabriel = leirbaG
+abriel G
+briel a
+riel b
+iel r
+el i
+l e
+ l
+ 
+ le 
+ lei 
+'''
